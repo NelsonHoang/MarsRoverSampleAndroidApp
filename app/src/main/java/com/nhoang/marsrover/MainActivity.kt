@@ -12,6 +12,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.nhoang.marsrover.ui.theme.MarsRoverTheme
 import com.nhoang.marsrover.ui.theme.view.Rover
+import com.nhoang.marsrover.ui.theme.view.RoverList
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -20,12 +21,7 @@ class MainActivity : ComponentActivity() {
             MarsRoverTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background) {
-                    Rover(
-                        "Perseverance",
-                        R.drawable.perseverance,
-                        landingDate = "18 February 2022",
-                        distanceTraveled = "12.56 km"
-                    )
+                    RoverList()
                 }
             }
         }
