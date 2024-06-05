@@ -1,6 +1,8 @@
 plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsKotlinAndroid)
+    alias(libs.plugins.kapt)
+    alias(libs.plugins.hilt)
 }
 
 android {
@@ -67,4 +69,20 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+
+    //Retrofit
+    implementation(libs.retrofit)
+    implementation(libs.retrofit.adapter)
+    implementation(libs.retrofit.gson)
+    implementation(libs.okhttp)
+
+    // Hilt
+    implementation(libs.hilt)
+    kapt(libs.kapt)
+    kapt(libs.hiltcompiler)
+    implementation(libs.hiltnavigation)
+}
+
+kapt {
+    correctErrorTypes = true
 }
