@@ -1,26 +1,26 @@
 package com.nhoang.marsrover.ui.view
 
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.runtime.getValue
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import com.nhoang.marsrover.domain.model.RoverManifestUiState
 import com.nhoang.marsrover.ui.manifestlist.MarsRoverManifestViewModel
 
 @Composable
 fun ManifestScreen(
-    roverName: String?,
-    marsRoverManifestViewModel: MarsRoverManifestViewModel
+    roverName: String?, marsRoverManifestViewModel: MarsRoverManifestViewModel
 ) {
+    val viewState by marsRoverManifestViewModel.roverManifestUiState.collectAsStateWithLifecycle()
+
     if (roverName != null) {
         LaunchedEffect(Unit) {
             marsRoverManifestViewModel.getMarsRoverManifest(roverName)
         }
     }
-    Text(text = "Manifest Screen $roverName")
-}
-
-@Preview
-@Composable
-fun ManifestScreenPreview() {
-    //ManifestScreen("Perseverance")
+    when (val roverManifestUiState = viewState) {
+        RoverManifestUiState.Error -> Error()
+        RoverManifestUiState.Loading -> Loading()
+        is RoverManifestUiState.Success -> ManifestList(roverManifestUiModelList = roverManifestUiState.roverManifestUiModelList)
+    }
 }

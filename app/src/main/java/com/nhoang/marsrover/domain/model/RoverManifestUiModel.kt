@@ -1,10 +1,8 @@
 package com.nhoang.marsrover.domain.model
 
-import com.nhoang.marsrover.service.model.RoverManifestRemoteModel
-
 sealed class RoverManifestUiState {
     data class Success(
-        val roverManifestUiModel: List<RoverManifestUiModel>
+        val roverManifestUiModelList: List<RoverManifestUiModel>
     ) : RoverManifestUiState()
     data object Loading : RoverManifestUiState()
     data object Error: RoverManifestUiState()
