@@ -1,4 +1,4 @@
-package com.nhoang.marsrover.ui.theme.view
+package com.nhoang.marsrover.ui.view
 
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable

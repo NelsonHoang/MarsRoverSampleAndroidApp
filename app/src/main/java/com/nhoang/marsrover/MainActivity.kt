@@ -11,8 +11,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.nhoang.marsrover.ui.theme.MarsRoverTheme
-import com.nhoang.marsrover.ui.theme.view.Rover
-import com.nhoang.marsrover.ui.theme.view.RoverList
+import com.nhoang.marsrover.ui.view.Rover
+import com.nhoang.marsrover.ui.view.RoverList
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

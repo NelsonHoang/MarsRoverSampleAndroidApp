@@ -10,8 +10,8 @@ import com.nhoang.marsrover.nav.Action
 import com.nhoang.marsrover.nav.Destination.HOME
 import com.nhoang.marsrover.nav.Destination.MANIFEST
 import com.nhoang.marsrover.ui.theme.MarsRoverTheme
-import com.nhoang.marsrover.ui.theme.view.ManifestScreen
-import com.nhoang.marsrover.ui.theme.view.RoverList
+import com.nhoang.marsrover.ui.view.ManifestScreen
+import com.nhoang.marsrover.ui.view.RoverList
 
 @Composable
 fun NavCompose() {
