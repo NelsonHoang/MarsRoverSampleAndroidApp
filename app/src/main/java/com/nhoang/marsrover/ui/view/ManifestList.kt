@@ -19,11 +19,19 @@ import com.nhoang.marsrover.R
 import com.nhoang.marsrover.domain.model.RoverManifestUiModel
 
 @Composable
-fun ManifestList(roverManifestUiModelList: List<RoverManifestUiModel>) {
+fun ManifestList(
+    roverManifestUiModelList: List<RoverManifestUiModel>,
+    roverName: String,
+    onClick: (roverName: String, sol: String) -> Unit
+) {
     Surface(color = MaterialTheme.colorScheme.background, modifier = Modifier.fillMaxSize()) {
         LazyColumn {
             items(count = roverManifestUiModelList.size, itemContent = { index ->
-                Manifest(roverManifestUiModel = roverManifestUiModelList[index])
+                Manifest(
+                    roverManifestUiModel = roverManifestUiModelList[index],
+                    roverName,
+                    onClick
+                )
             })
 
         }
@@ -32,14 +40,16 @@ fun ManifestList(roverManifestUiModelList: List<RoverManifestUiModel>) {
 
 @Composable
 fun Manifest(
-    roverManifestUiModel: RoverManifestUiModel
+    roverManifestUiModel: RoverManifestUiModel,
+    roverName: String,
+    onClick: (roverName: String, sol: String) -> Unit
 ) {
     Card(
         modifier = Modifier
             .padding(16.dp)
             .fillMaxWidth()
             .clickable {
-
+                onClick(roverName, roverManifestUiModel.sol)
             }
     ) {
         Column(
@@ -65,6 +75,8 @@ fun ManifestPreview() {
             sol = "4",
             earthDate = "2021-03-05",
             photoNumber = "34"
-        )
+        ),
+        roverName = "",
+        onClick = { _, _ -> }
     )
 }
