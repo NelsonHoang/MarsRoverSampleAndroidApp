@@ -37,8 +37,12 @@ fun NavCompose() {
                     }
                 )
             }
-            composable(PHOTO) {
-                PhotoScreen()
+            composable(PHOTO) { backStackEntry ->
+                PhotoScreen(
+                    roverName = backStackEntry.arguments?.getString("roverName"),
+                    sol = backStackEntry.arguments?.getString("sol"),
+                    marsRoverPhotoViewModel = hiltViewModel()
+                )
             }
         }
     }
