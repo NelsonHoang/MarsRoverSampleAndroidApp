@@ -82,6 +82,9 @@ dependencies {
     kapt(libs.kapt)
     kapt(libs.hiltcompiler)
     implementation(libs.hiltnavigation)
+
+    // Coil
+    implementation(libs.coil)
 }
 
 kapt {

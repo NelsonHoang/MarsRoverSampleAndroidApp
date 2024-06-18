@@ -16,6 +16,7 @@ okhttp = "4.10.0"
 hilt = "2.49"
 hiltcompiler = "1.2.0"
 hiltnavigation = "1.2.0"
+coil = "2.3.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -45,6 +46,8 @@ hilt = {group = "com.google.dagger",  name="hilt-android", version.ref="hilt"}
 hiltcompiler = { group = "androidx.hilt", name = "hilt-compiler", version.ref = "hiltcompiler" }
 hiltnavigation = { group = "androidx.hilt", name = "hilt-navigation-compose", version.ref = "hiltnavigation" }
 kapt = { group = "com.google.dagger", name = "hilt-android-compiler", version.ref = "hilt" }
+
+coil = {group = "io.coil-kt", name="coil-compose", version.ref="coil"}
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
