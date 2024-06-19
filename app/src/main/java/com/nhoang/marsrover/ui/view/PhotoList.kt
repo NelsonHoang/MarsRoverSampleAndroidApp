@@ -20,9 +20,10 @@ import com.nhoang.marsrover.domain.model.RoverPhotoUiModel
 
 @Composable
 fun PhotoList(
+    modifier : Modifier,
     roverPhotoUiModelList: List<RoverPhotoUiModel>
 ) {
-    Surface(color = MaterialTheme.colorScheme.background, modifier = Modifier.fillMaxSize()) {
+    Surface(color = MaterialTheme.colorScheme.background, modifier = modifier) {
         LazyColumn {
             items(count = roverPhotoUiModelList.size, itemContent = { index ->
                 Photo(roverPhotoUiModel = roverPhotoUiModelList[index])

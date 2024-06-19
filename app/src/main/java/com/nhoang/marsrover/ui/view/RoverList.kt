@@ -24,9 +24,10 @@ import com.nhoang.marsrover.domain.model.roverUiModelList
 
 @Composable
 fun RoverList(
+    modifier: Modifier,
     onClick: (roverName: String) -> Unit
 ) {
-    Surface(color = MaterialTheme.colorScheme.background, modifier = Modifier.fillMaxSize()) {
+    Surface(color = MaterialTheme.colorScheme.background, modifier = modifier.fillMaxSize()) {
         LazyColumn {
             items(count = roverUiModelList.size, itemContent = { index ->
                 val rover = roverUiModelList[index]

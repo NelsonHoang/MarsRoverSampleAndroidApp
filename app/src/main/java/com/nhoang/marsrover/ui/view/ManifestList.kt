@@ -20,11 +20,12 @@ import com.nhoang.marsrover.domain.model.RoverManifestUiModel
 
 @Composable
 fun ManifestList(
+    modifier: Modifier,
     roverManifestUiModelList: List<RoverManifestUiModel>,
     roverName: String,
     onClick: (roverName: String, sol: String) -> Unit
 ) {
-    Surface(color = MaterialTheme.colorScheme.background, modifier = Modifier.fillMaxSize()) {
+    Surface(color = MaterialTheme.colorScheme.background, modifier = modifier) {
         LazyColumn {
             items(count = roverManifestUiModelList.size, itemContent = { index ->
                 Manifest(
