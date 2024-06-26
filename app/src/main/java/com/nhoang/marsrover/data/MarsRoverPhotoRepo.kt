@@ -23,6 +23,7 @@ class MarsRoverPhotoRepo @Inject constructor(
                 roverName.lowercase(),
                 sol
             )
+            emit(networkResult)
         } catch (throwable: Throwable) {
             emit(null)
         }
