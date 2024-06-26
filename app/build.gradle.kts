@@ -86,6 +86,10 @@ dependencies {
 
     // Coil
     implementation(libs.coil)
+
+    // Room
+    kapt(libs.room)
+    implementation(libs.roomcompiler)
 }
 
 kapt {

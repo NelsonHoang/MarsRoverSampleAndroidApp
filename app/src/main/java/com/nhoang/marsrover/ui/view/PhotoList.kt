@@ -70,7 +70,8 @@ fun PhotoPreview() {
             imgSrc = "https://domain.com",
             sol = "34",
             earthDate = "2021-03-05",
-            cameraFullName = "Mast Camera Zoom - Right"
+            cameraFullName = "Mast Camera Zoom - Right",
+            isSaved = true
         )
     )
 }
