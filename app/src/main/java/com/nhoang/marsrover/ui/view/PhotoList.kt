@@ -1,6 +1,7 @@
 package com.nhoang.marsrover.ui.view
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
@@ -25,12 +26,13 @@ import com.nhoang.marsrover.domain.model.RoverPhotoUiModel
 @Composable
 fun PhotoList(
     modifier: Modifier,
-    roverPhotoUiModelList: List<RoverPhotoUiModel>
+    roverPhotoUiModelList: List<RoverPhotoUiModel>,
+    onClick: (roverPhotoUiModel: RoverPhotoUiModel) -> Unit
 ) {
     Surface(color = MaterialTheme.colorScheme.background, modifier = modifier) {
         LazyColumn {
             items(count = roverPhotoUiModelList.size, itemContent = { index ->
-                Photo(roverPhotoUiModel = roverPhotoUiModelList[index])
+                Photo(roverPhotoUiModel = roverPhotoUiModelList[index], onClick)
             })
         }
     }
@@ -38,10 +40,15 @@ fun PhotoList(
 
 @Composable
 fun Photo(
-    roverPhotoUiModel: RoverPhotoUiModel
+    roverPhotoUiModel: RoverPhotoUiModel,
+    onClick: (roverPhotoUiModel: RoverPhotoUiModel) -> Unit
 ) {
     Card(
-        modifier = Modifier.padding(16.dp)
+        modifier = Modifier
+            .padding(16.dp)
+            .clickable {
+                onClick(roverPhotoUiModel)
+            }
     ) {
         Column(
             modifier = Modifier.padding(16.dp)
@@ -94,5 +101,5 @@ fun PhotoPreview() {
             cameraFullName = "Mast Camera Zoom - Right",
             isSaved = true
         )
-    )
+    ) {}
 }

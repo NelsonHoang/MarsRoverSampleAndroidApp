@@ -3,6 +3,7 @@ package com.nhoang.marsrover.data
 import com.nhoang.marsrover.db.MarsRoverSavedPhotoDao
 import com.nhoang.marsrover.domain.model.RoverPhotoUiModel
 import com.nhoang.marsrover.domain.model.RoverPhotoUiState
+import com.nhoang.marsrover.domain.model.toDbModel
 import com.nhoang.marsrover.service.MarsRoverPhotoService
 import com.nhoang.marsrover.service.model.RoverPhotoRemoteModel
 import kotlinx.coroutines.flow.Flow
@@ -51,4 +52,12 @@ class MarsRoverPhotoRepo @Inject constructor(
                 RoverPhotoUiState.Error
             }
         }
+
+    suspend fun savePhoto(roverPhotoUiModel: RoverPhotoUiModel) {
+        marsRoverSavedPhotoDao.insert(toDbModel(roverPhotoUiModel))
+    }
+
+    suspend fun removePhoto(roverPhotoUiModel: RoverPhotoUiModel) {
+        marsRoverSavedPhotoDao.delete(toDbModel(roverPhotoUiModel))
+    }
 }
